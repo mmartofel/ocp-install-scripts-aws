@@ -1,11 +1,7 @@
 apiVersion: machine.openshift.io/v1beta1
 kind: MachineSet
 metadata:
-  annotations:
-    capacity.cluster-autoscaler.kubernetes.io/labels: kubernetes.io/arch=amd64
-    machine.openshift.io/GPU: '1'
-    machine.openshift.io/memoryMb: '62464'
-    machine.openshift.io/vCPU: '8'
+  name: arm-pizdek-hghj6-eu-west-1c
   namespace: openshift-machine-api
   labels:
     machine.openshift.io/cluster-api-cluster: pizdek-hghj6
@@ -34,7 +30,7 @@ spec:
             region: eu-west-1
           credentialsSecret:
             name: aws-cloud-credentials
-          instanceType: p3.2xlarge
+          instanceType: c7g.2xlarge
           metadata:
             creationTimestamp: null
           blockDevices:
@@ -61,7 +57,7 @@ spec:
               value: owned
           deviceIndex: 0
           ami:
-            id: ami-06bdb32d488c261a3
+            id: ami-0a44496ec2bb5fe4a
           subnet:
             filters:
               - name: 'tag:Name'
