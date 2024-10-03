@@ -1,0 +1,68 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  name: arm-pizdek-hghj6-eu-west-1a
+  namespace: openshift-machine-api
+  labels:
+    machine.openshift.io/cluster-api-cluster: pizdek-hghj6
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: pizdek-hghj6
+      machine.openshift.io/cluster-api-machineset: pizdek-hghj6-worker-eu-west-1a
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: pizdek-hghj6
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: pizdek-hghj6-worker-eu-west-1a
+    spec:
+      lifecycleHooks: {}
+      metadata: {}
+      providerSpec:
+        value:
+          userDataSecret:
+            name: worker-user-data
+          placement:
+            availabilityZone: eu-west-1a
+            region: eu-west-1
+          credentialsSecret:
+            name: aws-cloud-credentials
+          instanceType: c6g.2xlarge
+          metadata:
+            creationTimestamp: null
+          blockDevices:
+            - ebs:
+                encrypted: true
+                iops: 0
+                kmsKey:
+                  arn: ''
+                volumeSize: 120
+                volumeType: gp3
+          securityGroups:
+            - filters:
+                - name: 'tag:Name'
+                  values:
+                    - pizdek-hghj6-node
+            - filters:
+                - name: 'tag:Name'
+                  values:
+                    - pizdek-hghj6-lb
+          kind: AWSMachineProviderConfig
+          metadataServiceOptions: {}
+          tags:
+            - name: kubernetes.io/cluster/pizdek-hghj6
+              value: owned
+          deviceIndex: 0
+          ami:
+            id: ami-0a44496ec2bb5fe4a
+          subnet:
+            filters:
+              - name: 'tag:Name'
+                values:
+                  - pizdek-hghj6-subnet-private-eu-west-1a
+          apiVersion: machine.openshift.io/v1beta1
+          iamInstanceProfile:
+            id: pizdek-hghj6-worker-profile
