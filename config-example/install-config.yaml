@@ -1,0 +1,62 @@
+apiVersion: v1
+metadata:
+  creationTimestamp: null
+  name: helgoland
+baseDomain: sandbox499.opentlc.com
+additionalTrustBundlePolicy: Proxyonly
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform:
+    aws:
+      zones:
+      - eu-central-1a
+      - eu-central-1b
+      - eu-central-1c
+      rootVolume:
+        iops: 4000
+        size: 500
+        type: io1
+      metadataService:
+        authentication: Optional
+      type: c5.4xlarge
+  replicas: 3
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    aws:
+      zones:
+      - eu-central-1a
+      - eu-central-1b
+      - eu-central-1c
+      rootVolume:
+        iops: 4000
+        size: 500
+        type: io1
+      metadataService:
+        authentication: Optional
+      type: m6i.xlarge
+  replicas: 3
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OVNKubernetes
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  aws:
+    region: eu-central-1
+    propagateUserTags: true
+    userTags:
+      Environment: TESTING
+      Owner: Ragnar
+publish: External
+fips: false
+# sshKey: [here comes your key]
+pullSecret: '[here comes your pull secret]'

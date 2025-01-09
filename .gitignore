@@ -6,6 +6,8 @@ manifest
 config
 ssh/id_ed25519
 ssh/id_ed25519.pub
+ssh/id_rsa
+ssh/id_rsa.pub
 firstaws
 argo-admin.txt
 
