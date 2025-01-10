@@ -10,6 +10,9 @@ compute:
   name: worker
   platform:
     aws:
+      # IMPORTANT !!! Choose your amiID to benefit from Merketplace offers
+      # https://access.redhat.com/articles/6675791
+      amiID: ami-0829f8a495a46c5f7
       zones:
       - eu-central-1a
       - eu-central-1b

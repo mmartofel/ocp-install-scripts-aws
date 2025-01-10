@@ -3,6 +3,7 @@ login.txt
 openshift-install
 pull-secret.txt
 manifest
+manifest-copy
 config
 ssh/id_ed25519
 ssh/id_ed25519.pub
