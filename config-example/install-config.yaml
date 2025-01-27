@@ -1,8 +1,10 @@
 apiVersion: v1
 metadata:
   creationTimestamp: null
+  # Change your cluster name here:
   name: helgoland
-baseDomain: sandbox499.opentlc.com
+# Change baseDomain to yours (route53 domain)  
+baseDomain: sandbox1008.opentlc.com
 additionalTrustBundlePolicy: Proxyonly
 compute:
 - architecture: amd64
@@ -12,6 +14,7 @@ compute:
     aws:
       # IMPORTANT !!! Choose your amiID to benefit from Merketplace offers
       # https://access.redhat.com/articles/6675791
+      # following one is from eu-central-1 (Frankfurth)
       amiID: ami-0829f8a495a46c5f7
       zones:
       - eu-central-1a
@@ -61,5 +64,5 @@ platform:
       Owner: Ragnar
 publish: External
 fips: false
-# sshKey: [here comes your key]
+# sshKey: [here comes your ssh key]
 pullSecret: '[here comes your pull secret]'

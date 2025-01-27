@@ -1,16 +1,17 @@
-# OpenShift Install
+# Red Hat OpenShift Install scripts collection for AWS
 
-The OpenShift installer `openshift-install` makes it easy to get a cluster
-running on the public cloud or your local infrastructure.
+At that repo I just put some basic scripts helping to install OCP the IPI we call it (Installer Provisioned Infrastructure).
+It's like three available ways:
+ - default
+ - with modiffications through `install-config.yaml`
+ - with midiffications through the `manifest`
 
-To learn more about installing OpenShift, visit [docs.openshift.com](https://docs.openshift.com)
-and select the version of OpenShift you are using.
+in addition you can find how to:
+ - use OCP marketplace offers (`config-example/install-config.yaml`)
+ - use ARM with OCP at AWS (`arm-machineset`)
 
-## Installing the tools
+ sorry for being a bit chaotic, improvements proposals welcome :-)
 
-After extracting this archive, you can move the `openshift-install` binary
-to a location on your PATH such as `/usr/local/bin`, or keep it in a temporary
-directory and reference it via `./openshift-install`.
 
 ## License
 
