@@ -2,7 +2,7 @@
 # openshift-install and oc binaries using this script
 
 # Install OpenShift CLI (oc)
-log "Installing OpenShift CLI..."
+echo "Installing OpenShift CLI..."
 wget -q https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
 mkdir -p oc_install
 tar xzf openshift-client-linux.tar.gz -C oc_install
@@ -12,7 +12,7 @@ rm openshift-client-linux.tar.gz
 rm -rf oc_install
 
 # Install OpenShift Installer
-log "Installing OpenShift Installer..."
+echo "Installing OpenShift Installer..."
 wget -q https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux.tar.gz
 mkdir -p openshift_install
 tar xzf openshift-install-linux.tar.gz -C openshift_install
