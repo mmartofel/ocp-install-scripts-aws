@@ -4,7 +4,7 @@
 # Important to notice is that after we install ACM operator, AND! before we instantiate MultiClusterHub we must switch to the open-cluster-management namespace and create pull secret:
 
 
-oc create secret generic aks-secret \
+oc create secret generic acm-pull-secret \
   --from-file=.dockerconfigjson=pull-secret.txt \
   --type=kubernetes.io/dockerconfigjson \
   -n open-cluster-management
