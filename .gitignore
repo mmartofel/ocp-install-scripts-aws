@@ -1,6 +1,6 @@
 # Ignore some files from repo
 login.txt
-openshift-install
+openshift-install*
 pull-secret.txt
 manifest
 manifest-copy
